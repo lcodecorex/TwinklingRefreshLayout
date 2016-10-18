@@ -27,7 +27,7 @@ compile 'com.lcodecorex:tkrefreshlayout:1.0.3'
 #### 2.在xml中添加TwinklingRefreshLayout
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<com.lcodecore.library.TwinklingRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/refreshLayout"
     android:layout_width="match_parent"
@@ -40,7 +40,7 @@ compile 'com.lcodecorex:tkrefreshlayout:1.0.3'
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#fff" />
-</com.lcodecore.library.TwinklingRefreshLayout>
+</com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout>
 ```
 
 #### 3.在Activity或者Fragment中配置
