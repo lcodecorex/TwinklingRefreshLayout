@@ -12,7 +12,6 @@ import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
 import android.widget.FrameLayout;
 
 import com.lcodecore.tkrefreshlayout.IHeaderView;
@@ -71,6 +70,10 @@ public class ProgressLayout extends FrameLayout implements IHeaderView {
         LayoutParams params = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.CENTER);
         mCircleView.setLayoutParams(params);
         addView(mCircleView);
+    }
+
+    public void showArrow(boolean show) {
+        mProgress.showArrow(show);
     }
 
     /**
@@ -167,6 +170,8 @@ public class ProgressLayout extends FrameLayout implements IHeaderView {
             mProgress.setAlpha(STARTING_PROGRESS_ALPHA);
         }
 
+        mProgress.setIsBeingDragged(mIsBeingDragged);
+
         if (mCircleView.getVisibility() != View.VISIBLE) {
             mCircleView.setVisibility(View.VISIBLE);
         }
@@ -194,6 +199,7 @@ public class ProgressLayout extends FrameLayout implements IHeaderView {
     @Override
     public void onPullReleasing(float fraction, float maxHeadHeight, float headHeight) {
         mIsBeingDragged = false;
+        mProgress.setIsBeingDragged(mIsBeingDragged);
         if (fraction >= 1f) {
             ViewCompat.setScaleX(mCircleView, 1f);
             ViewCompat.setScaleY(mCircleView, 1f);
