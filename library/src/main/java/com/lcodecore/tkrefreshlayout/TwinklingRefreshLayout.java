@@ -577,14 +577,26 @@ public class TwinklingRefreshLayout extends RelativeLayout implements PullListen
      * 结束刷新
      */
     public void finishRefreshing() {
-        cp.finishRefreshing();
+        if (cp.isRefreshing()) {
+            cp.finishRefreshing();
+        }
     }
 
     /**
      * 结束加载更多
      */
     public void finishLoadmore() {
-        cp.finishLoadmore();
+        if (cp.isLoadingMore()) {
+            cp.finishLoadmore();
+        }
+    }
+
+    /**
+     * 同时结束刷新和加载更多
+     */
+    public void finishAll(){
+        finishRefreshing();
+        finishLoadmore();
     }
 
     /**
